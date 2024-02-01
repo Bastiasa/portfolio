@@ -1,0 +1,29 @@
+@media (max-width:620px) {
+    .selection-buttons button {
+        width: fit-content;
+        border: 0;
+    }
+    
+    .selection-buttons .selected-button {
+        border-radius: 10px;
+        border: solid black 1px !important;
+        width: fit-content;
+        border: 0;
+    }
+
+    .selection-buttons {
+        height: fit-content;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+
+}
+
+
+@media (max-width:729px) {
+    .gallery-link {
+        width: 190px;
+        left: calc(100% - 190px);
+    }
+}
