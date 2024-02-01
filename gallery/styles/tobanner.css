@@ -1,0 +1,53 @@
+
+:root {
+    --topbanner-height:30px;
+}
+
+body {
+    margin-top: var(--topbanner-height);
+}
+
+#topbanner {
+    position: fixed;
+    width: min(700px, 100%);
+
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+
+    height: var(--topbanner-height);
+    box-sizing: border-box;
+
+    border-bottom: 1.2px solid gray;
+    z-index: 100;
+    background-color: white;
+}
+
+#topbanner_back_button {
+    position: absolute;
+    height: var(--topbanner-height);
+    
+    left: 8px;
+    top: 50%;
+
+    cursor: pointer;
+    transform: translateY(-50%) scaleX(-1);
+}
+
+#topbanner_title {
+    position: absolute;
+    font-family: 'Poppins', sans-serif;
+
+    right: 15px;
+    top: 50%;
+
+    font-size: calc(var(--topbanner-height) - 10px);
+
+    transform: translateY(-50%);
+}
+
+@media (max-width:460px) {
+    :root {
+        --topbanner-height: 35px;
+    }
+}
