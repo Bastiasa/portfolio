@@ -158,6 +158,28 @@ class FullView{
         this.prevButton.addEventListener("mouseleave", onMouseLeave);
 
         this.imageElement.addEventListener("load", ()=>this.setLoadingSpin(false));
+
+        const motionRegistered = [];
+
+        window.addEventListener("mousemove", (e)=>{
+
+            if(this.fullviewElement.classList.contains("hidden")) {return;}
+
+            motionRegistered.push([e.clientX, e.clientY]);
+            this.setButtonsVisibility(true);
+
+            setTimeout(() => {
+                motionRegistered.pop();
+
+                if(motionRegistered.length < 1) {
+                    setTimeout(() => {
+                        this.setButtonsVisibility(false);
+                    }, 1200);
+                    
+                }
+
+            }, 50);
+        });
     }
 
     async buildElement(htmLink, parentElement, baseChild) {
