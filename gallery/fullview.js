@@ -114,7 +114,7 @@ class FullView{
 
     }
 
-    nextImage(){
+    prevImage(){
         const containerElement = document.getElementById("images-container");
 
         if(containerElement) {
@@ -123,7 +123,7 @@ class FullView{
         }
     }
 
-    prevImage(){
+    nextImage(){
         const containerElement = document.getElementById("images-container");
 
         if(containerElement) {
