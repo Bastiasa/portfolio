@@ -62,27 +62,32 @@ function GenerateStringOfHTMLCollectionWithAttribute(htmlCollection, attribute) 
 }
 
 const imagesPlaceholders = document.getElementsByClassName("image-placeholder");
+const settedPlaceholders = new Set();
 
-for (const currentPlaceholder of imagesPlaceholders) {
+function setUpImagePlaceholder(currentPlaceholder) {
+    if(settedPlaceholders.has(currentPlaceholder)) {return;}
+
+    console.log(currentPlaceholder);
+
     if (!(currentPlaceholder instanceof HTMLElement)) {
-        continue;
+        return;
     }
 
     const imageLoadPath = currentPlaceholder.getAttribute("value");
     if (typeof imageLoadPath === "undefined") {
         console.error(`[Images Placeholder Settings]: The placeholder ${currentPlaceholder.id} doesn't have the attribute 'value'.`);
-        continue;
+        return;
     }
 
-    const loadingImages = currentPlaceholder.getElementsByClassName('loading-image');
+    const loadingImages = currentPlaceholder.querySelectorAll('img');
     if (loadingImages.length !== 1) {
         console.error(`[Images Placeholder Settings]: There is ${loadingImages.length} image(s) to load in the placeholder ${currentPlaceholder.id}`);
-        continue;
+        return;
     }
 
     const loadingImage = loadingImages[0];
     if (!(loadingImage instanceof HTMLImageElement)) {
-        continue;
+        return;
     }
 
     loadingImage.addEventListener("error", () => {
@@ -109,7 +114,31 @@ for (const currentPlaceholder of imagesPlaceholders) {
     });
 
     loadingImage.src = imageLoadPath;
+    settedPlaceholders.add(currentPlaceholder);
 }
+
+for (const currentPlaceholder of imagesPlaceholders) {
+    setUpImagePlaceholder(currentPlaceholder);
+}
+
+const imagesPlaceholderObserver = new MutationObserver((mutations, observer)=>{
+    for(const mutation of mutations) {
+        if(mutation.type == "childList") {
+            if(mutation.target.classList.contains("image-placeholder")) {
+                setUpImagePlaceholder(mutation.target);
+            } else {
+                for(const currentPlaceholder of mutation.target.querySelectorAll(".image-placeholder")) {
+                    setUpImagePlaceholder(currentPlaceholder);
+                }
+            }
+        }
+    }
+});
+
+imagesPlaceholderObserver.observe(document.body, {
+    childList:true,
+    subtree:true
+});
 
 const multipleSelectionContainers = document.getElementsByClassName('multiple-selection');
 
