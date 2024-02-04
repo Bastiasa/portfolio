@@ -113,182 +113,155 @@ for (const currentPlaceholder of imagesPlaceholders) {
 
 const multipleSelectionContainers = document.getElementsByClassName('multiple-selection');
 
-function waitForChild(query, condition) {
-    return new Promise(resolve=>{
-        const main = function() {
-            const found = document.querySelector(query);
+const imageFullViewContainer = document.getElementById("image-full-view");
+const currentImage = document.getElementById("image-full-view__current-image");
+const imageViewCloseButton = document.getElementById("image-full-view__close-button");
 
-            if(!found) {
-                requestAnimationFrame(main);
-                return;
-            }
+imageFullViewContainer.style.display = "none";
 
-            if(typeof condition == "function" && !condition(found)) {
-                requestAnimationFrame(main);
-                return;
-            }
+var canAnimateImageViewClosing = true;
 
-            resolve(found);
-        }
+function UpdateImagesToSee() {
+    for(const currentPlaceholder of imagesPlaceholders){
+    
+            currentPlaceholder.addEventListener("click", (evt)=>{
+        
+                let selectingIMG = currentPlaceholder.getElementsByTagName("img")[0];
+                
+                currentImage.addEventListener("load", ()=>{
+                    if(currentImage.naturalHeight >= currentImage.naturalWidth || (currentImage.naturalHeight-currentImage.naturalWidth) <= 100){
+                        currentImage.style.height = "calc(100% - 120px)";
+                        currentImage.style.width = "auto";
+                    } else {
+                        currentImage.style.height = "auto";
+                        currentImage.style.width = "calc(100% - 20px)";
+                    }
+            
+                    imageFullViewContainer.style.animation = "fade-in-animation 0.25s ease-in forwards";
+                    imageFullViewContainer.style.display = "unset";
 
-        main();
-    });
+                    console.log(currentImage.naturalWidth, currentImage.naturalHeight);
+                });
+
+                currentImage.src = selectingIMG.src;
+                
+                
+
+            });
+        
+    }
 }
 
-waitForChild("#image-full-view", (found)=>{return found.children.length > 0}).then(
-    child => {
-        const imageFullViewContainer = child;
-        const currentImage = document.getElementById("image-full-view__current-image");
-        const imageViewCloseButton = document.getElementById("image-full-view__close-button");
+UpdateImagesToSee();
 
-        imageFullViewContainer.style.display = "none";
+for (const container of multipleSelectionContainers) {
+    if (!(container instanceof HTMLElement)) {
+        continue;
+    }
 
-        var canAnimateImageViewClosing = true;
+    const selectionButtonsContainer = container.getElementsByClassName("selection-buttons")[0];
+    const selectionsContainer = container.getElementsByClassName("selections")[0];
+    const currentSelectionContainer = container.getElementsByClassName("current-selection")[0];
 
-        function UpdateImagesToSee() {
-            for(const currentPlaceholder of imagesPlaceholders){
-            
-                    currentPlaceholder.addEventListener("click", (evt)=>{
-                
-                        let selectingIMG = currentPlaceholder.getElementsByTagName("img")[0];
-                        
-                        currentImage.addEventListener("load", ()=>{
-                            if(currentImage.naturalHeight >= currentImage.naturalWidth || (currentImage.naturalHeight-currentImage.naturalWidth) <= 100){
-                                currentImage.style.height = "calc(100% - 120px)";
-                                currentImage.style.width = "auto";
-                            } else {
-                                currentImage.style.height = "auto";
-                                currentImage.style.width = "calc(100% - 20px)";
-                            }
-                    
-                            imageFullViewContainer.style.animation = "fade-in-animation 0.25s ease-in forwards";
-                            imageFullViewContainer.style.display = "unset";
+    const selectionButtons = Array.from(selectionButtonsContainer.children);
+    const selections = Array.from(selectionsContainer.children);
 
-                            console.log(currentImage.naturalWidth, currentImage.naturalHeight);
-                        });
+    if (!(selectionButtonsContainer instanceof HTMLDivElement)) {
+        console.error(`[Multiple Selection Setting]: The selections buttons container div hasn't been find in ` + container.id);
+        continue;
+    }
 
-                        currentImage.src = selectingIMG.src;
-                        
-                        
+    if (!(selectionsContainer instanceof HTMLDivElement)) {
+        console.error(`[Multiple Selections Settings]: The selections div hasn't been find in ` + container.id);
+        continue;
+    }
 
-                    });
-                
+    if (!(currentSelectionContainer instanceof HTMLDivElement)) {
+        console.error(`[Multiple Selections Settings]: The current selection div hasn't been find in ` + container.id);
+        continue;
+    }
+
+    if (selectionButtons.length !== selections.length) {
+        console.error(`[Multiple Selections Settings]: The buttons and selections do not match in ` + container.id + `. There is ` + selectionButtons.length.toString() + ` buttons and ` + selections.length.toString() + ` selectable divs.`);
+        continue;
+    }
+
+    for (const selection of selections) {
+        let match = false;
+        for (const button of selectionButtons) {
+            if (button.getAttribute("selection-id") == selection.getAttribute("selection-id")) {
+                match = true;
             }
         }
-
-        UpdateImagesToSee();
-
-        for (const container of multipleSelectionContainers) {
-            if (!(container instanceof HTMLElement)) {
-                continue;
-            }
-
-            const selectionButtonsContainer = container.getElementsByClassName("selection-buttons")[0];
-            const selectionsContainer = container.getElementsByClassName("selections")[0];
-            const currentSelectionContainer = container.getElementsByClassName("current-selection")[0];
-
-            const selectionButtons = Array.from(selectionButtonsContainer.children);
-            const selections = Array.from(selectionsContainer.children);
-
-            if (!(selectionButtonsContainer instanceof HTMLDivElement)) {
-                console.error(`[Multiple Selection Setting]: The selections buttons container div hasn't been find in ` + container.id);
-                continue;
-            }
-
-            if (!(selectionsContainer instanceof HTMLDivElement)) {
-                console.error(`[Multiple Selections Settings]: The selections div hasn't been find in ` + container.id);
-                continue;
-            }
-
-            if (!(currentSelectionContainer instanceof HTMLDivElement)) {
-                console.error(`[Multiple Selections Settings]: The current selection div hasn't been find in ` + container.id);
-                continue;
-            }
-
-            if (selectionButtons.length !== selections.length) {
-                console.error(`[Multiple Selections Settings]: The buttons and selections do not match in ` + container.id + `. There is ` + selectionButtons.length.toString() + ` buttons and ` + selections.length.toString() + ` selectable divs.`);
-                continue;
-            }
-
-            for (const selection of selections) {
-                let match = false;
-                for (const button of selectionButtons) {
-                    if (button.getAttribute("selection-id") == selection.getAttribute("selection-id")) {
-                        match = true;
-                    }
-                }
-                if (!match) {
-                    console.error(`[Multiple Selections Settings]: The next list don't match attribute "selection-id" in ` + container.id + `: \n\nSelection list:\n\n`,
-                        GenerateStringOfHTMLCollectionWithAttribute(selections, "selection-id"),
-                        `\n\nButtons selection list:\n\n`,
-                        GenerateStringOfHTMLCollectionWithAttribute(selectionButtons, "selection-id"));
-                }
-            }
-
-            container.setAttribute("animating", "no");
-
-            currentSelectionContainer.appendChild(FindChildByAttribute(selectionsContainer, 'selection-id', '0').cloneNode(true));
-
-            selectionButtons[0].className = "selected-button";
-
-            for (const button of selectionButtons) {
-                button.addEventListener("click", () => {
-                    let currentSelection = currentSelectionContainer.children[0];
-
-                    if (currentSelection.getAttribute("selection-id") == button.getAttribute("selection-id") || container.getAttribute("animating") !== "no") {
-                        return;
-                    }
-
-                    container.setAttribute("animating", "yes");
-
-                    currentSelection.style.setProperty("animation", "moving-left-out-animation 0.25s forwards ease-out");
-
-                    let selectionToClone = FindChildByAttribute(selectionsContainer, "selection-id", button.getAttribute("selection-id"));
-
-                    if (!(selectionToClone instanceof HTMLElement) || selectionToClone == null) {
-                        console.error("[Multiple Selections Settings]: The selection in button with selection-id " + button.getAttribute('selection-id') + " doesn't exists.");
-                        container.setAttribute("animating", "no");
-                        return;
-                    }
-
-                    let newSelection = selectionToClone.cloneNode(true);
-                    
-                    button.className = "selected-button";
-                    FindChildByAttribute(selectionButtonsContainer, "selection-id", currentSelection.getAttribute("selection-id")).className = "";
-
-                    setTimeout(() => {
-                        currentSelection.remove();
-                        currentSelectionContainer.appendChild(newSelection);
-
-                        UpdateImagesToSee();
-
-                        newSelection.style.setProperty("animation", "moving-right-in-animation 0.25s forwards ease-in");
-
-                        setTimeout(() => {
-                            container.setAttribute("animating", "no");
-                        }, 250);
-                    }, 250);
-                });
-            }
+        if (!match) {
+            console.error(`[Multiple Selections Settings]: The next list don't match attribute "selection-id" in ` + container.id + `: \n\nSelection list:\n\n`,
+                GenerateStringOfHTMLCollectionWithAttribute(selections, "selection-id"),
+                `\n\nButtons selection list:\n\n`,
+                GenerateStringOfHTMLCollectionWithAttribute(selectionButtons, "selection-id"));
         }
+    }
 
+    container.setAttribute("animating", "no");
 
-        imageViewCloseButton.addEventListener("click", (evt) => {
-            if(!canAnimateImageViewClosing){ 
+    currentSelectionContainer.appendChild(FindChildByAttribute(selectionsContainer, 'selection-id', '0').cloneNode(true));
+
+    selectionButtons[0].className = "selected-button";
+
+    for (const button of selectionButtons) {
+        button.addEventListener("click", () => {
+            let currentSelection = currentSelectionContainer.children[0];
+
+            if (currentSelection.getAttribute("selection-id") == button.getAttribute("selection-id") || container.getAttribute("animating") !== "no") {
                 return;
             }
-            canAnimateImageViewClosing = false;
-            imageViewCloseButton.classList.add("pich-button");
+
+            container.setAttribute("animating", "yes");
+
+            currentSelection.style.setProperty("animation", "moving-left-out-animation 0.25s forwards ease-out");
+
+            let selectionToClone = FindChildByAttribute(selectionsContainer, "selection-id", button.getAttribute("selection-id"));
+
+            if (!(selectionToClone instanceof HTMLElement) || selectionToClone == null) {
+                console.error("[Multiple Selections Settings]: The selection in button with selection-id " + button.getAttribute('selection-id') + " doesn't exists.");
+                container.setAttribute("animating", "no");
+                return;
+            }
+
+            let newSelection = selectionToClone.cloneNode(true);
+            
+            button.className = "selected-button";
+            FindChildByAttribute(selectionButtonsContainer, "selection-id", currentSelection.getAttribute("selection-id")).className = "";
 
             setTimeout(() => {
-                imageViewCloseButton.classList.remove("pich-button");
-                canAnimateImageViewClosing = true;
-                imageFullViewContainer.style.animation = "fade-out-animation 0.25s ease-out forwards";
+                currentSelection.remove();
+                currentSelectionContainer.appendChild(newSelection);
+
+                UpdateImagesToSee();
+
+                newSelection.style.setProperty("animation", "moving-right-in-animation 0.25s forwards ease-in");
+
                 setTimeout(() => {
-                    imageFullViewContainer.style.display = "none";
+                    container.setAttribute("animating", "no");
                 }, 250);
-            }, 600);
+            }, 250);
         });
     }
-);
+}
 
+
+imageViewCloseButton.addEventListener("click", (evt) => {
+    if(!canAnimateImageViewClosing){ 
+        return;
+    }
+    canAnimateImageViewClosing = false;
+    imageViewCloseButton.classList.add("pich-button");
+
+    setTimeout(() => {
+        imageViewCloseButton.classList.remove("pich-button");
+        canAnimateImageViewClosing = true;
+        imageFullViewContainer.style.animation = "fade-out-animation 0.25s ease-out forwards";
+        setTimeout(() => {
+            imageFullViewContainer.style.display = "none";
+        }, 250);
+    }, 600);
+});
