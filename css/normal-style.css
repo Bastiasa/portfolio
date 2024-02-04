@@ -171,7 +171,7 @@
 }
 
 #certificates-container a img {
-    width: 22.94vw;
+    width: min(200px, 22.94vw);
     height: auto;
 
     box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.4);
