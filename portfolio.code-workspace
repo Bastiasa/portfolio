@@ -1,0 +1,21 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"actionButtons": {
+			"commands": [
+				{
+					"name": "Convert certificates to images",
+					"command": "python -u \"b:\\web\\portfolio\\portfolio\\develop_utils\\pdf2webp.py\" b:\\web\\portfolio\\portfolio\\src\\app\\certs",
+					"singleInstance": true
+				}
+			],
+			"defaultColor": "white",
+			"reloadButton": "↻",
+			"loadNpmCommands": false
+		}
+	}
+}

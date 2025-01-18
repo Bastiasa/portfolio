@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground: #2e1628;
+  --background: #ffffff;
+  --loading-spinner-thickness: 10px;
+  --hamburguer-menu-animation-duration: 200ms;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #2e1628;
+    --foreground: #ffffff;
+  }
+}
+
+@keyframes loading-spinner-animation {
+  from {
+    transform: translate(-50%, -50%) rotate(0);
+  }
+
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+}

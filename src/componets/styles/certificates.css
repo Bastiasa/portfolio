@@ -1,0 +1,42 @@
+a .cert-tooltip {
+  text-align: center;
+  text-transform: uppercase;
+  position: absolute;
+
+  transform: translate(-50%, -100%);
+  left: 50%;
+  top: 5%;
+
+  text-wrap: nowrap;
+  opacity: 0;
+
+  transition: opacity 200ms ease;
+  transition-property: opacity, top;
+}
+
+a:hover .cert-tooltip {
+  opacity: 1;
+  top: -5px;
+}
+
+
+a .cert-thumbnail {
+  width: 160px;
+  height: 160px;
+  pointer-events: none;
+  object-fit: contain;
+  border-radius: 0;
+  scale: 1;
+  transition: scale 200ms ease;
+}
+
+a:hover .cert-thumbnail {
+  scale: 1.05;
+}
+
+@media (max-width:444px) {
+  a .cert-thumbnail {
+    width: 120px;
+    height: 120px;
+  }
+}

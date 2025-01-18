@@ -1,0 +1,90 @@
+.main-root-header {
+    height: 54px;
+}
+
+.header-buttons-container>a,
+.hamburguer-menu>a,
+.hamburguer-menu>button {
+    padding: 15px;
+    background-color: var(--background);
+    color: var(--foreground);
+
+    transition: color 200ms ease;
+    transition-property: color, background-color;
+    text-transform: uppercase;
+
+    cursor: pointer;
+}
+
+.header-buttons-container>a:hover,
+.hamburguer-menu>a:hover,
+.hamburguer-menu>button:hover {
+    background-color: var(--foreground);
+    color: var(--background);
+
+}
+
+.hamburguer-menu-background {
+    position: fixed;
+
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    background-color: rgba(0, 0, 0, 0);
+    opacity: 1;
+
+    pointer-events: none;
+
+    transition: background-color var(--hamburguer-menu-animation-duration) ease;
+    z-index: 3000;
+}
+
+.hamburguer-menu-background.visible {
+    pointer-events: unset;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.hamburguer-menu {
+    position: absolute;
+
+    top: 0;
+    bottom: 0;
+    left: 100%;
+    right: 0;
+
+    overflow: hidden;
+
+    background-color: var(--background);
+    opacity: 0;
+
+    transition: opacity var(--hamburguer-menu-animation-duration) ease;
+    transition-property: left, opacity;
+}
+
+.hamburguer-menu-background.visible .hamburguer-menu {
+    opacity: 100%;
+    left: 25%;
+}
+
+.hamburguer-menu .close-button {
+    height: 54px;
+    padding: 10px;
+}
+
+.hamburguer-menu .close-button:hover img {
+    filter: invert(1);
+}
+
+.hamburguer-menu>a {
+    height: 54px;
+}
+
+.hamburguer-menu>* {
+    border-bottom: 1px solid var(--foreground);
+}
+
+.hamburguer-menu>*:last-child {
+    border-bottom: none;
+}
