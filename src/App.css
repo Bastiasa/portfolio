@@ -20,9 +20,6 @@
   );
 
   background-repeat: repeat;
-
-  border-radius: calc(infinite * 1px);
-
   animation: placeholder-shimmer 100s infinite linear;
 }
 

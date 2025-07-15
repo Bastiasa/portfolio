@@ -1,5 +1,6 @@
 
 import './App.css'
+import Certificates from './Certificates';
 import Footer from './Footer';
 import Header from './Header'
 import Projects from './Projects'
@@ -16,9 +17,9 @@ function App() {
 
       <Header />
       
-      <main className='w-full max-w-2xl m-auto p-4 pt-11'>
+      <main className='w-full max-w-5xl m-auto p-4 pt-11 pb-11'>
 
-        <LinearLayout spacing='20px' direction='vertical'>
+        <LinearLayout spacing='40px' direction='vertical'>
           <section>
             <LinearLayout direction='vertical'>
               <h4>¡Bienvenido!</h4>
@@ -32,10 +33,21 @@ function App() {
             <h4>Proyectos</h4>
             <Projects />
           </section>
+
+          <section>
+            <LinearLayout spacing='20px' direction='vertical'>
+              <h4 className='text-center mt-16 pb-8'>Mis certificados</h4>
+
+              <Certificates/>
+
+            </LinearLayout>
+
+          </section>
         </LinearLayout>
 
 
       </main>
+
 
       <Footer/>
     </>

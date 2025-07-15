@@ -84,15 +84,15 @@ const PROJECTS: ProjectInfo[] = [
 function ProjectElement({projectTitle, projectDescription, coverSrc, moreInfoLink, pixelatedCover = false, projectYear}:ProjectElementProps) {
     return (
 
-        <LinearLayout direction="horizontal" className="project-container">
+        <LinearLayout direction="horizontal" spacing="0" className="project-container">
 
             <ImageLoader src={coverSrc || "https://placehold.co/3000x3000"} alt={projectTitle} className={`project-cover ${pixelatedCover ? 'pixelated': ''}` } />
 
             <article style={{flexGrow:"1"}} className="p-4 w-1">
-                <LinearLayout direction="vertical">
-                    <h5 className="project-title">{projectTitle + (projectYear ? ` - ${projectYear}`: "")}</h5>
+                <LinearLayout direction="vertical" spacing="6px">
+                    <h5  className="project-title">{projectTitle + (projectYear ? ` - ${projectYear}`: "")}</h5>
                     <p className="project-description">{projectDescription}</p>
-                    {moreInfoLink && <a className="text-right" target="_blank" href={moreInfoLink}>Ver más <Icon name="open_in_new" /></a>}
+                    {moreInfoLink && <a className="project-link text-right" target="_blank" href={moreInfoLink}>Ver más <Icon name="open_in_new" /></a>}
                 </LinearLayout>
             </article>
         </LinearLayout>
@@ -102,7 +102,7 @@ function ProjectElement({projectTitle, projectDescription, coverSrc, moreInfoLin
 
 export default function Projects() {
     return (
-        <LinearLayout className="w-full flex-wrap pt-8" justifyContent="center" spacing="20px">
+        <LinearLayout className="w-full flex-wrap pt-8" justifyContent="center" spacing="14px">
 
             {PROJECTS.map(project => <ProjectElement
                 projectTitle={project.title}

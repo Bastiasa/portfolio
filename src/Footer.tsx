@@ -60,7 +60,7 @@ export default function Footer() {
                 </LinearLayout>
 
                 <article className='text-center underline'>
-                    <a style={{ color: "white" }} href="mailto:leysantqm@gmail.com">leysantq@gmail.com <Icon name='mail' /></a>
+                    <a style={{ color: "white" }} href="mailto:leysantqm@gmail.com">leysantqm@gmail.com <Icon name='mail' /></a>
                     <br />
                     <a style={{color:"white"}} href="tel:+573126850338">+57 312-685-033-8 <Icon name='phone_android'/></a>
                 </article>
