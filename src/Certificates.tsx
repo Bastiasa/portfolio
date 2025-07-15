@@ -27,13 +27,13 @@ function Certificate({ data }: { data: CertificateData }) {
 
         <a
             href={`/portfolio/certificates/${data.sourceName}.pdf`}
-            className="certificate-container inline-block relative"
+            className="certificate-container relative"
         >
 
             <span className="certificate-name absolute">{data.name}</span>
 
             <ImageLoader
-                className="certificate-cover inline-block"
+                className="certificate-cover"
                 src={`/portfolio/certificates/${data.sourceName}.webp`}
                 alt={data.name}
                 clip={false}
@@ -45,7 +45,7 @@ function Certificate({ data }: { data: CertificateData }) {
 }
 
 function _certShow({certificates}:{certificates:CertificateData[]}) {
-    return <LinearLayout className="flex-wrap" justifyContent="center" spacing="15px">
+    return <LinearLayout className="flex-wrap w-full" justifyContent="center" spacing="15px">
         {certificates.map((data, i)=> {
             return <Certificate data={data} key={`cert#${i}`} />
         })}

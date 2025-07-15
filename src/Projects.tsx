@@ -91,11 +91,13 @@ function ProjectElement({projectTitle, projectDescription, coverSrc, moreInfoLin
                 alt={projectTitle}
                 className={`project-cover inline-block ${pixelatedCover ? 'pixelated' : ''}`} />
 
-            <LinearLayout direction="vertical" className="p-4 w-0 h-max" style={{flexGrow:"1"}} spacing="6px">
-                <h5  className="project-title">{projectTitle + (projectYear ? ` - ${projectYear}`: "")}</h5>
-                <p className="project-description">{projectDescription}</p>
-                {moreInfoLink && <a className="project-link text-right w-full block" target="_blank" href={moreInfoLink}>Ver más <Icon name="open_in_new" /></a>}
-            </LinearLayout>
+            <section className="w-0" style={{flexGrow:"1"}}>
+                <LinearLayout direction="vertical" className="p-4" spacing="6px">
+                    <h5  className="project-title">{projectTitle + (projectYear ? ` - ${projectYear}`: "")}</h5>
+                    <p className="project-description">{projectDescription}</p>
+                    {moreInfoLink && <a className="project-link text-right w-full block" target="_blank" href={moreInfoLink}>Ver más <Icon name="open_in_new" /></a>}
+                </LinearLayout>
+            </section>
         </LinearLayout>
 
     );
