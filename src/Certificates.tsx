@@ -45,7 +45,7 @@ function Certificate({ data }: { data: CertificateData }) {
 }
 
 function _certShow({certificates}:{certificates:CertificateData[]}) {
-    return <LinearLayout className="flex-wrap w-full" justifyContent="center" spacing="15px">
+    return <LinearLayout className="flex-wrap w-full" justifyContent="center" spacing="40px">
         {certificates.map((data, i)=> {
             return <Certificate data={data} key={`cert#${i}`} />
         })}
@@ -55,7 +55,7 @@ function _certShow({certificates}:{certificates:CertificateData[]}) {
 export default function Certificates() {
     
 
-    return <LinearLayout direction="vertical" spacing="30px">
+    return <LinearLayout direction="vertical" spacing="40px">
     
     <_certShow certificates={SQUARE_LIKE_CERTS}/>
     <_certShow certificates={RECTANGLE_LIKE_CERTS}/>
