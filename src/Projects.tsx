@@ -84,17 +84,18 @@ const PROJECTS: ProjectInfo[] = [
 function ProjectElement({projectTitle, projectDescription, coverSrc, moreInfoLink, pixelatedCover = false, projectYear}:ProjectElementProps) {
     return (
 
-        <LinearLayout direction="horizontal" spacing="0" className="project-container">
+        <LinearLayout className="project-container" spacing="0" alignItems="stretch">
 
-            <ImageLoader src={coverSrc || "https://placehold.co/3000x3000"} alt={projectTitle} className={`project-cover ${pixelatedCover ? 'pixelated': ''}` } />
+            <ImageLoader
+                src={coverSrc || "https://placehold.co/3000x3000"}
+                alt={projectTitle}
+                className={`project-cover inline-block ${pixelatedCover ? 'pixelated' : ''}`} />
 
-            <article style={{flexGrow:"1"}} className="p-4 w-1">
-                <LinearLayout direction="vertical" spacing="6px">
-                    <h5  className="project-title">{projectTitle + (projectYear ? ` - ${projectYear}`: "")}</h5>
-                    <p className="project-description">{projectDescription}</p>
-                    {moreInfoLink && <a className="project-link text-right" target="_blank" href={moreInfoLink}>Ver más <Icon name="open_in_new" /></a>}
-                </LinearLayout>
-            </article>
+            <LinearLayout direction="vertical" className="p-4 w-0 h-max" style={{flexGrow:"1"}} spacing="6px">
+                <h5  className="project-title">{projectTitle + (projectYear ? ` - ${projectYear}`: "")}</h5>
+                <p className="project-description">{projectDescription}</p>
+                {moreInfoLink && <a className="project-link text-right w-full block" target="_blank" href={moreInfoLink}>Ver más <Icon name="open_in_new" /></a>}
+            </LinearLayout>
         </LinearLayout>
 
     );
@@ -102,9 +103,10 @@ function ProjectElement({projectTitle, projectDescription, coverSrc, moreInfoLin
 
 export default function Projects() {
     return (
-        <LinearLayout className="w-full flex-wrap pt-8" justifyContent="center" spacing="14px">
+        <LinearLayout className="w-full flex-wrap pt-8" justifyContent="center" alignItems="flex-start" spacing="14px">
 
-            {PROJECTS.map(project => <ProjectElement
+            {PROJECTS.map((project, i) => <ProjectElement
+                key={`project#${i}`}
                 projectTitle={project.title}
                 projectDescription={project.description}
                 coverSrc={project.cover}

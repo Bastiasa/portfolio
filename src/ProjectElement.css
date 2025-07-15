@@ -3,9 +3,10 @@
 .project-container {
     border: 1px solid gray;
     border-radius: 7px;
+
     width: calc(50% - 20px);
     max-width: 600px;
-    height: max-content;
+
     overflow: hidden;
 }
 
@@ -19,7 +20,6 @@
 
 .project-cover {
     width: 200px;
-    height: auto;
 }
 
 .project-cover img {

@@ -6,8 +6,8 @@ type LinearLayoutProps = React.HTMLProps<HTMLDivElement> & {
     direction?: "horizontal" | "vertical";
     className?: string;
     children?: React.ReactNode;
-    alignItems?: "start" | "center" | "end" | "stretch";
-    justifyContent?: "start" | "center" | "end" | "between";
+    alignItems?: React.CSSProperties['alignItems'];
+    justifyContent?: React.CSSProperties['justifyContent'];
 }
 
 export const LinearLayout =  forwardRef<HTMLDivElement, LinearLayoutProps>(
@@ -16,8 +16,8 @@ export const LinearLayout =  forwardRef<HTMLDivElement, LinearLayoutProps>(
         return (
             <div
                 ref={ref}
-                style={{ gap: spacing,  ...givenStyle}}
-                className={`flex ${direction === "horizontal" ? "flex-row" : "flex-col"} items-${alignItems} justify-${justifyContent} ${className}`}
+                style={{ gap: spacing, justifyContent, alignItems, ...givenStyle}}
+                className={`flex ${direction === "horizontal" ? "flex-row" : "flex-col"} ${className}`}
                 {...props}
             >
                 {children}

@@ -47,11 +47,15 @@ export default function Footer() {
 
                 <LinearLayout justifyContent='center' spacing='20px'>
 
-                    {SOCIAL_MEDIA.map(data => {
+                    {SOCIAL_MEDIA.map((data, index) => {
                         
                         return (
-                            <a href={data.link}>
-                                <ImageLoader width='32px' height='32px' src={data.logo} alt={data.name} />
+                            <a href={data.link} key={`social_media#${index}`}>
+                                <ImageLoader
+                                    width='32px'
+                                    height='32px'
+                                    src={data.logo}
+                                    alt={data.name} />
                             </a>
 
                         );

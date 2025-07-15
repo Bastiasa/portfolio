@@ -12,16 +12,7 @@
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
-.image-placeholder {
-  background: linear-gradient(
-    90deg,
-    rgba(0, 0, 0, 0.1) 0%,
-    rgba(0, 0, 0, 0.18) 100%
-  );
 
-  background-repeat: repeat;
-  animation: placeholder-shimmer 100s infinite linear;
-}
 
 .background-primary {
   background-color: var(--primary-color);
