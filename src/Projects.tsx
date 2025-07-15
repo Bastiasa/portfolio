@@ -65,7 +65,7 @@ const PROJECTS: ProjectInfo[] = [
     {
         title: "ArkaNet",
         description: "Este videojuego fue hecho para un curso de Platzi.",
-        link: "https://bastiasa.github.io/arkanet",
+        link: "https://bastiasa.itch.io/arkanet",
         cover: ARKANET_BANNER,
         blank: true,
         year: 2022
