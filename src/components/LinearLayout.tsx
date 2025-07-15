@@ -11,7 +11,7 @@ type LinearLayoutProps = React.HTMLProps<HTMLDivElement> & {
 }
 
 export const LinearLayout =  forwardRef<HTMLDivElement, LinearLayoutProps>(
-    ({ children, className, direction = "horizontal", spacing = "10px", alignItems = "start", justifyContent = "start", style: givenStyle={}, ...props}, ref) => {
+    ({ children, className, direction = "horizontal", spacing = "10px", alignItems, justifyContent, style: givenStyle={}, ...props}, ref) => {
         className = className ? ` ${className}` : "";
         return (
             <div
