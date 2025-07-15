@@ -42,7 +42,7 @@ export default function Footer() {
 
         <footer className="text-white background-primary p-4">
 
-            <LinearLayout direction='vertical' spacing='14px'>
+            <LinearLayout alignItems='center' direction='vertical' spacing='14px'>
                 <h4 className='text-center'>Contacto</h4>
 
                 <LinearLayout justifyContent='center' spacing='20px'>
@@ -63,11 +63,11 @@ export default function Footer() {
                     })}
                 </LinearLayout>
 
-                <article className='text-center underline'>
+                <section className='text-center underline'>
                     <a style={{ color: "white" }} href="mailto:leysantqm@gmail.com">leysantqm@gmail.com <Icon name='mail' /></a>
                     <br />
                     <a style={{color:"white"}} href="tel:+573126850338">+57 312-685-033-8 <Icon name='phone_android'/></a>
-                </article>
+                </section>
 
             </LinearLayout>
 
