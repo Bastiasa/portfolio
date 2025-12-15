@@ -2,9 +2,9 @@ import { LinearLayout } from "./components/LinearLayout";
 
 import './Certificates.css';
 
-import APTIS_LOGO from './assets/certifications-logos/aptis_logo.png';
-import PHP_LOGO from './assets/certifications-logos/php_logo.webp';
-import JAVA_LOGO from './assets/certifications-logos/java_logo.webp';
+import APTIS_LOGO from './assets/certifications_logos/aptis_logo.png';
+import PHP_LOGO from './assets/certifications_logos/php_logo.webp';
+import JAVA_LOGO from './assets/certifications_logos/java_logo.webp';
 
 // const SQUARE_LIKE_CERTS: readonly CertificateData[] = [
 //     { name: 'Desarrollo web con PHP', sourceName: '9123002706555TI1107854150C' },

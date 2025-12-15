@@ -8,6 +8,7 @@ import DARK_PEOPLE_BANNER from './assets/projects_banners/dark_people_banner.png
 import PRESSURE_POINT_BANNER from './assets/projects_banners/pressure_point_banner.png';
 import ARKANET_BANNER from './assets/projects_banners/arkanet_banner.png';
 import FPSCS_BANNER from './assets/projects_banners/fpscs_banner.png';
+import BC_LOGO from './assets/projects_banners/blog_cutter_logo.png';
 
 import { Icon } from "./components/Icon";
 
@@ -32,6 +33,14 @@ type ProjectInfo = {
 }
 
 const PROJECTS: ProjectInfo[] = [
+
+    {
+        title: "Blog Cutter",
+        description: "Una aplicación Android para cortar videos largos de forma eficiente.",
+        cover:BC_LOGO,
+        link: "https://github.com/Bastiasa/blogcutter/",
+        year: 2025
+    },
     
     {
         title: "Pressure Point",
@@ -91,11 +100,11 @@ function ProjectElement({projectTitle, projectDescription, coverSrc, moreInfoLin
                 alt={projectTitle}
                 className={`project-cover inline-block ${pixelatedCover ? 'pixelated' : ''}`} />
 
-            <section className="w-0" style={{flexGrow:"1"}}>
-                <LinearLayout direction="vertical" className="p-4" spacing="6px">
+            <section className="w-0 relative" style={{flexGrow:"1"}}>
+                <LinearLayout direction="vertical" className="p-4 pb-6" spacing="6px">
                     <h5  className="project-title">{projectTitle + (projectYear ? ` - ${projectYear}`: "")}</h5>
                     <p className="project-description">{projectDescription}</p>
-                    {moreInfoLink && <a className="project-link text-right w-full block" target="_blank" href={moreInfoLink}>Ver más <Icon name="open_in_new" /></a>}
+                    {moreInfoLink && <a className="absolute bottom-2 right-2 project-link text-right block" target="_blank" href={moreInfoLink}>Ver más <Icon name="open_in_new" /></a>}
                 </LinearLayout>
             </section>
         </LinearLayout>
@@ -105,7 +114,7 @@ function ProjectElement({projectTitle, projectDescription, coverSrc, moreInfoLin
 
 export default function Projects() {
     return (
-        <LinearLayout className="projects-container w-full flex-wrap pt-8" justifyContent="" alignItems="flex-start" spacing="14px">
+        <LinearLayout className="projects-container w-full flex-wrap pt-8" justifyContent="" alignItems="stretch" spacing="14px">
 
             {PROJECTS.map((project, i) => <ProjectElement
                 key={`project#${i}`}
