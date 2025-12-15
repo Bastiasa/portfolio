@@ -32,9 +32,17 @@
     image-rendering: pixelated;
 }
 
+.project-container {
+    justify-content: left;
+}
+
 @media(max-width:800px) {
     .project-container {
         width: 100%;
+    }
+
+    .projects-container {
+        justify-content: center;
     }
 }
 

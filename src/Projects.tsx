@@ -73,7 +73,7 @@ const PROJECTS: ProjectInfo[] = [
 
     {
         title: "Dark People",
-        description: "Un videojuego basado en Five Night's at Freddy's, desarrollado en Godot Engine 3. Nunca pude terminarlo, lo estuve desarrollando a los 11 años.",
+        description: "Un videojuego basado en Five Night's at Freddy's, desarrollado en Godot Engine 3.",
         cover: DARK_PEOPLE_BANNER,
         link: "https://bastiasa.itch.io/dark-people-beta",
         blank: true,
@@ -105,7 +105,7 @@ function ProjectElement({projectTitle, projectDescription, coverSrc, moreInfoLin
 
 export default function Projects() {
     return (
-        <LinearLayout className="w-full flex-wrap pt-8" justifyContent="center" alignItems="flex-start" spacing="14px">
+        <LinearLayout className="projects-container w-full flex-wrap pt-8" justifyContent="" alignItems="flex-start" spacing="14px">
 
             {PROJECTS.map((project, i) => <ProjectElement
                 key={`project#${i}`}

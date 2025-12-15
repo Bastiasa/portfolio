@@ -9,9 +9,10 @@ type ImageLoaderProps = {
     width?: React.CSSProperties['width'];
     height?: React.CSSProperties['height'];
     style?: React.CSSProperties;
+    objectFit?: React.CSSProperties['objectFit'];
 }
 
-export function ImageLoader({clip = true, className = "", src, alt, width, height, style:givenStyle = {} }: ImageLoaderProps) {
+export function ImageLoader({clip = true, className = "", src, alt, width, height, objectFit, style:givenStyle = {} }: ImageLoaderProps) {
 
     const imageRef = useRef<HTMLImageElement>(null);
     const containerRef = useRef<HTMLDivElement>(null);
@@ -35,7 +36,7 @@ export function ImageLoader({clip = true, className = "", src, alt, width, heigh
                 ref={imageRef}
                 src={src}
                 alt={alt}
-                style={{opacity: "0", filter: "blur(10px)", transitionProperty:"opacity, filter"}}
+                style={{objectFit, width, height, opacity: "0", filter: "blur(10px)", transitionProperty:"opacity, filter"}}
                 className="image-loader duration-300 ease-in-out"
             />
             

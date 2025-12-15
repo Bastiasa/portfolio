@@ -1,4 +1,5 @@
 
+import { useEffect, useState } from 'react';
 import './App.css'
 import Certificates from './Certificates';
 import Footer from './Footer';
@@ -9,6 +10,13 @@ import LiquidChrome from './components/react-bits/LiquidChrome';
 
 
 function MainBackground() {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    if (count < 1) {
+      setCount(count+1);
+    }
+  }, [count]);
   return (
     <div
       className='-z-1 absolute inset-0 pointer-events-none opacity-15'>
@@ -39,23 +47,20 @@ function App() {
           <LinearLayout spacing='40px' direction='vertical'>
             <section>
               <LinearLayout direction='vertical'>
-                <h4>Servicios de desarrollo web</h4>
+                <h2>Servicios de desarrollo web</h2>
 
                 <p>Creo y mantengo sitios web y soluciones digitales para negocios y proyectos que necesitan funcionar bien y sin complicaciones.</p>
               </LinearLayout>
             </section>
 
             <section>
-              <h4>Proyectos</h4>
+              <h2>Proyectos</h2>
               <Projects />
             </section>
 
             <section>
               <LinearLayout spacing='20px' direction='vertical'>
-                <h4 className='text-center mt-16 pb-8'>Mis certificados</h4>
-
                 <Certificates/>
-
               </LinearLayout>
 
             </section>

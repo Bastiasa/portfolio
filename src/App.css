@@ -1,4 +1,19 @@
 
+@font-face {
+  font-family: 'Rubik';
+  src: url('/fonts/Rubik/Rubik-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Rubik';
+  src: url('/fonts/Rubik/Rubik-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+
 .logo {
   height: 6em;
   padding: 1.5em;
@@ -65,6 +80,7 @@ body {
 
 :root {
   color: white;
+  font-family: 'Rubik';
 }
 
 a {
