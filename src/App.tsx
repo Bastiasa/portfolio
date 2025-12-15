@@ -4,8 +4,22 @@ import Certificates from './Certificates';
 import Footer from './Footer';
 import Header from './Header'
 import Projects from './Projects'
-import FunnyTriangles from './components/FunnyTriangles';
 import { LinearLayout } from './components/LinearLayout';
+import LiquidChrome from './components/react-bits/LiquidChrome';
+
+
+function MainBackground() {
+  return (
+    <div
+      className='-z-1 absolute inset-0 pointer-events-none opacity-15'>
+      <LiquidChrome
+        baseColor={[0, 0.04, 0]}
+        speed={0.03}
+        amplitude={0.6}
+        interactive={false}
+      />
+    </div>);
+}
 
 
 function App() {
@@ -13,40 +27,44 @@ function App() {
   return (
     <>
 
-      <FunnyTriangles />
 
       <Header />
       
-      <main className='w-full max-w-5xl m-auto p-4 pt-11 pb-11'>
+      <div>
 
-        <LinearLayout spacing='40px' direction='vertical'>
-          <section>
-            <LinearLayout direction='vertical'>
-              <h4>¡Bienvenido!</h4>
-              <p>Este es mi portafolio y es un gusto que estés aquí.</p>
-              <p>Soy Luis Bastidas, un desarrollador Back-End.</p>
-              <p>También me gusta un poco la <strong>creación de videojuegos</strong>, <strong>aplicaciones Android</strong> y el <strong>desarrollo de software</strong> de una forma general.</p>
-            </LinearLayout>
-          </section>
+        <MainBackground />
+        
+        <main className='w-full max-w-5xl m-auto p-4 pt-11 pb-11'>
 
-          <section>
-            <h4>Proyectos</h4>
-            <Projects />
-          </section>
+          <LinearLayout spacing='40px' direction='vertical'>
+            <section>
+              <LinearLayout direction='vertical'>
+                <h4>Servicios de desarrollo web</h4>
 
-          <section>
-            <LinearLayout spacing='20px' direction='vertical'>
-              <h4 className='text-center mt-16 pb-8'>Mis certificados</h4>
+                <p>Creo y mantengo sitios web y soluciones digitales para negocios y proyectos que necesitan funcionar bien y sin complicaciones.</p>
+              </LinearLayout>
+            </section>
 
-              <Certificates/>
+            <section>
+              <h4>Proyectos</h4>
+              <Projects />
+            </section>
 
-            </LinearLayout>
+            <section>
+              <LinearLayout spacing='20px' direction='vertical'>
+                <h4 className='text-center mt-16 pb-8'>Mis certificados</h4>
 
-          </section>
-        </LinearLayout>
+                <Certificates/>
+
+              </LinearLayout>
+
+            </section>
+          </LinearLayout>
 
 
-      </main>
+        </main>
+      </div>
+     
 
 
       <Footer/>

@@ -40,7 +40,7 @@ const SOCIAL_MEDIA: SocialMediaData[] = [
 export default function Footer() {
     return (
 
-        <footer className="text-white background-primary p-4">
+        <footer className="text-white bg-black border-t-2 border-t-green-700 p-4">
 
             <LinearLayout alignItems='center' direction='vertical' spacing='14px'>
                 <h4 className='text-center'>Contacto</h4>

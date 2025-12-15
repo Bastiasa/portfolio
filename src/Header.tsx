@@ -1,13 +1,13 @@
 import { ImageLoader } from "./components/ImageLoader";
 
-import HEADER_IMAGE_SOURCE from "./assets/header_image.jpg";
+import HEADER_IMAGE_SOURCE from "./assets/header_image.png";
 import { LinearLayout } from "./components/LinearLayout";
 
 import './Header.css';
 
 export default function Header() {
   return (
-      <header className="background-primary p-4">
+      <header className="bg-black border-b-2 border-b-green-700 p-4">
           
           <LinearLayout justifyContent="center" alignItems="center" spacing="30px" className="items-center justify-center">
               <ImageLoader className="header-image" style={{borderRadius:"7px"}} src={HEADER_IMAGE_SOURCE} alt="Luis Bastidas" />

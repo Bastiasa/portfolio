@@ -57,3 +57,34 @@
 .read-the-docs {
   color: #888;
 }
+
+
+body {
+  background-color: rgb(12, 12, 12);
+}
+
+:root {
+  color: white;
+}
+
+a {
+  color: green; 
+}
+
+a:hover {
+  color: greenyellow;
+}
+
+
+.fade-bottom {
+  mask: linear-gradient(
+    to top,
+    #12121200 0%,
+    #121212a0 160px
+  );
+}
+
+#root {
+  position: relative;
+  z-index: 300;
+}
