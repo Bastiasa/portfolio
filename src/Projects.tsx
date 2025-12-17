@@ -44,7 +44,7 @@ const PROJECTS: ProjectInfo[] = [
     
     {
         title: "Pressure Point",
-        description: "Un videojuego multijugador online en el que te enfretarás a un oponente. Actualmente sus servidores están cerrados.",
+        description: "Un videojuego multijugador online en el que te enfretarás en un 1v1. Desarrollado para una Game Jam.",
         cover: PRESSURE_POINT_BANNER,
         link: "https://bastiasa.itch.io/pressure-point",
         blank: true,
