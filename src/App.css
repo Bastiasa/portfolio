@@ -75,20 +75,20 @@
 
 
 body {
-  background-color: rgb(12, 12, 12);
+  background-color: white;
 }
 
 :root {
-  color: white;
+  color: black;
   font-family: 'Rubik';
 }
 
-a {
-  color: green; 
+a:hover {
+  color: #648de5; 
 }
 
-a:hover {
-  color: greenyellow;
+a {
+  color: var(--primary-color);
 }
 
 

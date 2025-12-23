@@ -21,7 +21,7 @@ function MainBackground() {
     <div
       className='-z-1 absolute inset-0 pointer-events-none opacity-15'>
       <LiquidChrome
-        baseColor={[0, 0.04, 0]}
+        baseColor={[48/255, 76/255, 137/255]}
         speed={0.03}
         amplitude={0.6}
         interactive={false}
