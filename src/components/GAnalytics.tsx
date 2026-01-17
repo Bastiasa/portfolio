@@ -27,7 +27,7 @@ export function GAnalyticsConsent() {
             
             <h1 className="text-lg">Usamos cookies para mejorar su experiencia de usuario </h1>
 
-            <div className="text-right">
+            <div className="ml-auto text-right">
                 <button
                     onClick={onAcceptClicked}
                     className="text-white">

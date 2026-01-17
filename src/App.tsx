@@ -19,10 +19,10 @@ function MainBackground() {
   }, [count]);
   return (
     <div
-      className='-z-1 absolute inset-0 pointer-events-none opacity-15'>
+      className='-z-1 absolute inset-0 pointer-events-none opacity-10'>
       <LiquidChrome
         baseColor={[48/255, 76/255, 137/255]}
-        speed={0.03}
+        speed={0.06}
         amplitude={0.6}
         interactive={false}
       />
