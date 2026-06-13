@@ -1,0 +1,59 @@
+
+
+.project-container {
+    border: 1px solid gray;
+    border-radius: 7px;
+
+    width: calc(50% - 20px);
+    max-width: 600px;
+
+    overflow: hidden;
+}
+
+.project-title {
+    font-weight: bold;
+}
+
+.project-link, .project-description, .project-title {
+    font-size: 12px;
+}
+
+.project-cover {
+    width: 200px;
+}
+
+.project-cover img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.project-cover.pixelated img {
+    image-rendering: pixelated;
+}
+
+.project-container {
+    justify-content: left;
+}
+
+@media(max-width:800px) {
+    .project-container {
+        width: 100%;
+    }
+
+    .projects-container {
+        justify-content: center;
+    }
+}
+
+@media(max-width:500px) {
+    .project-cover {
+        width: 150px;
+    }
+}
+
+@media(max-width:426) {
+    .project-cover {
+        width: 125px;
+    }
+}

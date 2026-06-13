@@ -1,134 +1,37 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!doctype html>
+<html lang="es-CO">
+  <head>
+
+    <meta name="google-site-verification" content="w9vSOoe0qFtiMZcLGwShpZovpKKssJqrk1dr6cbyuZM" />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+    <meta name="keywords" content="programador, desarrollador, dev, luis bastidas, videojuegos"/>
+    <meta name="description" content="Servicios de desarrollo web"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
-    <title>Bastiasa</title>
-
-    <meta name="description" content="Portafolio oficial de @Bastiasa. Programador Web, Diseñador Vectorial, Locución y Editor de videos">
-    <meta name="author" content="Santiago Bastidas">
+    <meta name="autor" content="Luis Bastidas"/>
     
-    <meta name="keywords" content="diseñador gráfico, programador web, páginas web, programador, editor, trabajador, freelancer">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <meta charset="UTF-8" />
 
-    <meta name="theme-color" content="white">
+    <title>Luis Bastidas</title>
 
-    <link rel="stylesheet" href="css/animations.css">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JV9ML4JJME"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
 
-    <link rel="stylesheet" href="css/classes.css">
-    <link rel="stylesheet" href="css/normal-style.css">
-
-    <link media="(max-width:500px)" rel="stylesheet" href="css/max-width500px.css">
-    <link media="(max-width:769px) and (min-width:500px)" rel="stylesheet" href="css/max-width769px.css">
-
-
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    
-</head>
-<body id="main-body">
-
-    <div id="topbanner">
-        <div id="topbanner__self-photo-placeholder" class="image-placeholder" value="media/images/profile-face-0.webp">
-            
-            <div class="placeholder-loader" style="position: absolute; top: calc(50% - 16px); left: calc(50% - 16px);height: 32px; width: 32px; display: inline-block;"></div>
-            <img id="topbanner__self-photo"  class="loading-image" alt="bastiasa, luis santiago bastidas">
-            
-            <svg viewBox="0 0 600 600" style="transform:scale(1.2);z-index:-1;height: 100%; width: 100%; display:inline; position: absolute; top: 0; left: 0;" id="topbanner__self-photo-placeholder__background_icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="250" height="250" fill="white">
-
-                <title>Abstract user icon</title>
-              
-                <defs>
-                  <clipPath id="circular-border">
-                    <circle cx="300" cy="300" r="280"/>
-                  </clipPath>
-                  <clipPath id="avoid-antialiasing-bugs">
-                    <rect width="100%" height="498"/>
-                  </clipPath>
-                </defs>
-                
-                <circle cx="300" cy="300" r="280" fill="black" clip-path="url(#avoid-antialiasing-bugs)"/>
-                <circle cx="300" cy="230" r="115"/>
-                <circle cx="300" cy="550" r="205" clip-path="url(#circular-border)"/>
-                
-            </svg>
-            
-        </div>
-    </div>
-
-
-    <div id="bottom-content">
-
-        <div class="section">
-            <h4 class="section-title">Bienvenido</h4>
-            <p>Hola, soy Luis Bastidas. Este es mi portafolio personal, ¡Un gusto que estés aquí!</p>
-            
-        </div>
-        
-        <div class="section">
-            <h4 class="section-title">Mis habilidades</h4>
-            
-            <p>
-                A continuación verás mis habilidades y fortalezas. Para una mejor redacción, se ha separado en secciones y evitar la saturación de texto. Presiona el botón que te interese.
-            </p>
-
-            <div class="multiple-selection" id="skills-selection">
-
-                <div class="selection-buttons">
-                    <button selection-id="0">
-                        Arte
-                    </button>
-                    
-                    <button selection-id="1">
-                        Páginas Web
-                    </button>
-                    
-                    <button selection-id="2">
-                        Edición de videos
-                    </button>
-                    
-                    <button selection-id="3">
-                        Desarrollo de Software
-                    </button>
-                    
-                    <button selection-id="4">
-                        Vocabulario
-                    </button> 
-                </div>
-                
-                <div class="current-selection">
-                </div>
-
-                <div class="selections">
-                    <div selection-id="0" data-content-path="htm/es/art-selection.htm"></div>
-                    <div selection-id="1" data-content-path="htm/es/websites-selection.htm"></div>
-                    <div selection-id="2" data-content-path="htm/es/video-edit-selection.htm"></div>
-                    <div selection-id="3" data-content-path="htm/es/apps-selection.htm"></div>
-                    <div selection-id="4" data-content-path="htm/es/language-selection.htm"></div>
-
-                </div>
-            </div>
-
-            <h3>Certificados</h3>
-
-            <p>
-                Aquí hay algunos de mis certificados que he cursado. Actualmente, solo he cursado cursos de SENA Sofía Plus y Platzi.
-            </p>
-
-            <div class="multiple-elements" id="certificates-container" data-content-path="htm/certificates.htm">                
-            </div>
-            
-        </div>
-
-    </div>
-
-    <div id="image-full-view" style="display: none;" data-content-path="htm/image-full-view.htm"></div>
-    <div id="bottom-banner" data-content-path="htm/es/bottom-banner.htm"></div>
-    
-    <script src="js/htm_manager.js"></script>
-    <script src="javascript-activity/thecnical-references.js"></script>
-</body>
-
-
-
+  </body>
 </html>

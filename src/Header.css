@@ -1,0 +1,11 @@
+.header-image {
+    width: 6em;
+    height: 6em;
+}
+
+@media(max-width:426px) {
+    .header-image {
+        width: 4em;
+        height: 4em;
+    }
+}
