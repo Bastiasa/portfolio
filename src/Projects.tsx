@@ -9,6 +9,7 @@ import PRESSURE_POINT_BANNER from './assets/projects_banners/pressure_point_bann
 import ARKANET_BANNER from './assets/projects_banners/arkanet_banner.png';
 import FPSCS_BANNER from './assets/projects_banners/fpscs_banner.png';
 import BC_LOGO from './assets/projects_banners/blog_cutter_logo.png';
+import SANTA_STORE_LOGO from './assets/projects_banners/santa-store.png';
 
 import { Icon } from "./components/Icon";
 
@@ -33,6 +34,13 @@ type ProjectInfo = {
 }
 
 const PROJECTS: ProjectInfo[] = [
+    {
+        title:"Santa Store",
+        description:"E-Commerce de una empresa de estampados llamada Santa Store Diseños Personalizados",
+        cover:SANTA_STORE_LOGO,
+        link:"https://santastore.site",
+        year: 2026
+    },
 
     {
         title: "Blog Cutter",
