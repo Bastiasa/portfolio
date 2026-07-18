@@ -6,6 +6,8 @@ import { projects } from "./data/projects";
 import { certificates } from "./data/certificates";
 import { HERO_DATA } from "./data/hero";
 import { FOOTER_DATA } from "./data/footer";
+import { CookieConsent } from "./components/CookieConsent";
+import { initAnalytics } from "./analytics";
 
 export default function App() {
   return (
@@ -22,6 +24,8 @@ export default function App() {
       <Footer
        {...FOOTER_DATA}
       />
+
+      <CookieConsent onAccepted={initAnalytics}/>
     </div>
   );
 }
