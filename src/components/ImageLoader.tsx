@@ -1,47 +1,32 @@
-import { useRef } from "react";
-import './ImageLoader.css';
+import { useState } from "react";
 
 type ImageLoaderProps = {
-    clip?:boolean
-    className?: React.ComponentProps<'div'>['className'];
-    src: React.ComponentProps<'img'>['src'];
-    alt: React.ComponentProps<'img'>['alt'];
-    width?: React.CSSProperties['width'];
-    height?: React.CSSProperties['height'];
-    style?: React.CSSProperties;
-    objectFit?: React.CSSProperties['objectFit'];
-}
+  src: string;
+  alt: string;
+  className?: string;
+};
 
-export function ImageLoader({clip = true, className = "", src, alt, width, height, objectFit, style:givenStyle = {} }: ImageLoaderProps) {
+/**
+ * Imagen con estado de carga simple (skeleton mientras carga, fallback si falla).
+ * Si ya tienes un componente ImageLoader en tu proyecto, elimina este archivo
+ * y actualiza los imports.
+ */
+export function ImageLoader({ src, alt, className = "" }: ImageLoaderProps) {
+  const [loaded, setLoaded] = useState(false);
+  const [errored, setErrored] = useState(false);
 
-    const imageRef = useRef<HTMLImageElement>(null);
-    const containerRef = useRef<HTMLDivElement>(null);
-
-    function onImageLoaded() {
-        const imageElement = imageRef.current as HTMLImageElement;
-        const containerElement = containerRef.current as HTMLDivElement;
-
-        imageElement.style.opacity = "1";
-        imageElement.style.filter = "blur(0)";
-
-        containerElement.style.background = "transparent";
-    }
-
-    return (
-
-        <div ref={containerRef} style={{width, height, ...givenStyle}} className={`image-placeholder ${clip ? "overflow-clip" : ""} ${className}`}>
-
-            <img
-                onLoad={onImageLoaded}
-                ref={imageRef}
-                src={src}
-                alt={alt}
-                style={{objectFit, width, height, opacity: "0", filter: "blur(10px)", transitionProperty:"opacity, filter"}}
-                className="image-loader duration-300 ease-in-out"
-            />
-            
-        </div>
-      
+  return (
+    <div className={`image-loader ${className}`}>
+      {!loaded && !errored && <div className="image-loader-skeleton" />}
+      <img
+        src={errored ? "https://placehold.co/900x900?text=%20" : src}
+        alt={alt}
+        loading="lazy"
+        onLoad={() => setLoaded(true)}
+        onError={() => setErrored(true)}
+        className="image-loader-img"
+        style={{ opacity: loaded || errored ? 1 : 0 }}
+      />
+    </div>
   );
-    
 }

@@ -1,27 +1,17 @@
-import React from "react";
+type IconProps = {
+  name: string;
+  className?: string;
+};
 
-function joinClasses(...classes: any[]) {
-    return classes.filter(v=>typeof v === "string").join(" ");
-}
-
-export const Icon = React.forwardRef<HTMLSpanElement, React.ComponentProps<"span"> & { name: IconName|'', size?: string }>((props, ref) => {
-    const { name, size = "18px", style, className = "", ...rest } = props;
-    
-    const resultStyle = {
-        verticalAlign:"middle",
-        overflow:"hidden",
-        width: size,
-        height: size,
-        fontSize: size,
-        ...style
-    } satisfies React.CSSProperties;
-
-    return <span
-        translate="no"
-        ref={ref}
-        className={joinClasses("material-symbols-outlined", className)}
-        style={resultStyle}
-        {...rest}>
-        {name}
+/**
+ * Envoltorio ligero sobre Material Symbols (via CDN, ver index.html).
+ * Si ya tienes un componente Icon en tu proyecto, elimina este archivo
+ * y actualiza los imports.
+ */
+export function Icon({ name, className = "" }: IconProps) {
+  return (
+    <span className={`material-symbols-outlined icon ${className}`} aria-hidden="true">
+      {name}
     </span>
-});
+  );
+}
