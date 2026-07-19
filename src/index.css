@@ -7,21 +7,26 @@
    ========================================================================== */
 :root {
   /* Superficies */
-  --paper: #0b0f0d;      /* fondo principal */
-  --paper-2: #131917;    /* secciones secundarias */
-  --surface: #1a221e;    /* tarjetas */
+  --paper: #00111f;      /* fondo principal */
+  --paper-2: #001c35;    /* secciones secundarias */
+  --surface: #082844;    /* tarjetas */
 
   /* Texto */
-  --ink: #f3f7f4;        /* contraste alto */
-  --ink-soft: #b2beb7;   /* texto secundario */
+  --ink: #f4f8fc;        /* contraste alto */
+  --ink-soft: #a8b7c7;   /* texto secundario */
 
   /* Acentos */
-  --accent: #309b55;     /* principal */
-  --accent-2: #3ecf72;   /* hover / estados activos */
-  --accent-3: #8ff0b2;   /* highlights */
+  --accent: #2d8cff;     /* principal */
+  --accent-2: #4fa4ff;   /* hover / estados activos */
+  --accent-3: #9bd1ff;   /* highlights */
+
+  /* Estados */
+  --success: #22c55e;
+  --warning: #f59e0b;
+  --danger: #ef4444;
 
   /* Líneas y sombras */
-  --line: #2a342e;
+  --line: #163a5c;
   --shadow-sm: 0 2px 12px rgba(0, 0, 0, 0.25);
   --shadow-md: 0 12px 32px rgba(0, 0, 0, 0.45);
 
@@ -30,11 +35,11 @@
   --radius-md: 18px;
   --radius-pill: 999px;
 
+  /* Tipografía */
   --font-display: "Fraunces", Georgia, serif;
   --font-body: "Inter", system-ui, sans-serif;
   --font-mono: "IBM Plex Mono", ui-monospace, monospace;
 }
-
 * {
   box-sizing: border-box;
 }
