@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { Icon } from "./Icon";
-import { googleAnalyticsSetMode } from "../analytics";
 
 const STORAGE_KEY = "cookie-consent";
 

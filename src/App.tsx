@@ -8,7 +8,6 @@ import { HERO_DATA } from "./data/hero";
 import { FOOTER_DATA } from "./data/footer";
 import { CookieConsent } from "./components/CookieConsent";
 import { googleAnalyticsSetMode } from "./analytics";
-import { useEffect } from "react";
 
 export default function App() {
 
