@@ -4,7 +4,7 @@ import HERO_PHOTO from '../assets/hero-photo.png';
 
 export const HERO_DATA: HeroProps = {
     name: "Luis Bastidas",
-    role: "Programador",
+    role: "Desarrollador Backend",
     tagline: "Construyo productos web sólidos, del prototipo a producción.",
     photoSrc: HERO_PHOTO,
     location: "Antioquia, Colombia",

@@ -289,9 +289,9 @@ body {
 }
 
 .image-loader {
-  position: relative;
-  width: 220px;
+  width: 500px;
   min-width: 220px;
+  position: relative;
   align-self: stretch;
   background: var(--paper-2);
 }
@@ -401,6 +401,12 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
   gap: 1rem;
+}
+
+@media(max-width:450px) {
+  .certificates-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 .certificate-card a {

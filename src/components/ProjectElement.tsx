@@ -28,7 +28,7 @@ export function ProjectElement({
       <ImageLoader
         src={coverSrc || "https://placehold.co/3000x3000"}
         alt={projectTitle}
-        className={`project-cover inline-block ${pixelatedCover ? "pixelated" : ""}`}
+        className={`project-cover  inline-block ${pixelatedCover ? "pixelated" : ""}`}
       />
 
       <section className="sm:w-0 relative" style={{ flexGrow: "1" }}>
