@@ -7,9 +7,11 @@ import { certificates } from "./data/certificates";
 import { HERO_DATA } from "./data/hero";
 import { FOOTER_DATA } from "./data/footer";
 import { CookieConsent } from "./components/CookieConsent";
-import { initAnalytics } from "./analytics";
+import { googleAnalyticsSetMode } from "./analytics";
+import { useEffect } from "react";
 
 export default function App() {
+
   return (
     <div id="top" className="page">
       <Hero
@@ -25,7 +27,9 @@ export default function App() {
        {...FOOTER_DATA}
       />
 
-      <CookieConsent onAccepted={initAnalytics}/>
+      <CookieConsent onAccepted={() => {
+        googleAnalyticsSetMode('normal');
+      }}/>
     </div>
   );
 }

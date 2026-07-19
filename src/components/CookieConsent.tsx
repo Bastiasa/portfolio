@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Icon } from "./Icon";
+import { googleAnalyticsSetMode } from "../analytics";
 
 const STORAGE_KEY = "cookie-consent";
 
@@ -15,10 +16,6 @@ const ACCEPTED_VALUE = "accepted";
  * Pestaña de cookies. Se muestra por encima de todo el sitio hasta que el
  * usuario acepta; a partir de ahí queda recordado en localStorage y no
  * vuelve a aparecer en visitas futuras.
- *
- * `onAccepted` es el único punto de entrada: úsalo para inicializar Google
- * Analytics (o cualquier script de medición) solo después del consentimiento,
- * nunca antes.
  */
 export function CookieConsent({ onAccepted }: CookieConsentProps) {
   const [visible, setVisible] = useState(false);
@@ -26,6 +23,7 @@ export function CookieConsent({ onAccepted }: CookieConsentProps) {
   useEffect(() => {
     const state = localStorage.getItem(STORAGE_KEY);
     const alreadyAccepted = state === ACCEPTED_VALUE;
+    
     if (alreadyAccepted) {
       onAccepted();
     } else if (state !== DENIED_VALUE) {
@@ -41,7 +39,7 @@ export function CookieConsent({ onAccepted }: CookieConsentProps) {
   }
 
   function handleDeny() {
-    localStorage.setItem(STORAGE_KEY, ACCEPTED_VALUE);
+    localStorage.setItem(STORAGE_KEY, DENIED_VALUE);
     setVisible(false);
   }
 

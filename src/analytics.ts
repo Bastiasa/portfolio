@@ -5,11 +5,22 @@ declare global {
     }
 };
 
-function initGoogleAnalytics() {
-    window.gtag('js', new Date());
-    window.gtag('config', 'G-JV9ML4JJME');
+export function googleAnalyticsSetMode(mode:'restricted'|'normal') {
+    switch (mode) {
+        case 'restricted':
+            window.gtag('consent', 'update', {
+                analytics_storage: 'denied'
+            });
+            break;
+        
+        case 'normal':
+            window.gtag('consent', 'update', {
+                analytics_storage: 'granted'
+            });
+            break;
+    
+        default:
+            break;
+    }
 }
 
-export const initAnalytics = () => {
-    initGoogleAnalytics();
-}

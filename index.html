@@ -30,9 +30,18 @@
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-JV9ML4JJME"></script>
+    
     <script>
       window.dataLayer = window.dataLayer || [];
+      
       function gtag(){dataLayer.push(arguments);}
+
+      window.gtag('consent', 'default', {
+          analytics_storage: 'denied'
+      });
+
+      window.gtag('js', new Date());
+      window.gtag('config', 'G-JV9ML4JJME');
     </script>
   </head>
   <body>
