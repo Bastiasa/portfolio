@@ -30,7 +30,7 @@ export const certificates: CertificateData[] = [
     image: LOGOS('java_logo.webp'),
     url: r("9502002716242TI1107854150C.pdf"),
     title: "PROGRAMACIÓN ORIENTADA A OBJETOS CON JAVA",
-    issuer: "Servicion Nacional de Aprendizaje (CO)",
+    issuer: "Servicio Nacional de Aprendizaje (CO)",
   },
 
   {
