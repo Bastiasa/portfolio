@@ -15,7 +15,7 @@ export const projects: ProjectInfo[] = [
 
   {
     title: "Shirt Maker 3D",
-    description: "Puedes crear un mockup fácil y rápido, con tus imágenes favoritas.",
+    description: "Puedes crear un mockup fácil y rápido, con tus imágenes favoritas. Creado con Vite.",
     cover: IMAGES('shirt_maker_3d.jpg'),
     link: "https://bastiasa.github.io/shirt_maker",
     blank: true,
@@ -24,7 +24,7 @@ export const projects: ProjectInfo[] = [
 
   {
     title: "Sistema de Votación",
-    description: "Realiza votaciones en varios dispositivos. Con un gráfico de barras en tiempo real.",
+    description: "Realiza votaciones en varios dispositivos. Con un gráfico de barras en tiempo real. Creado con React y Electron.",
     cover: IMAGES('voting_system.webp'),
     link: "https://github.com/Bastiasa/voting-system",
     year: 2025
@@ -33,7 +33,7 @@ export const projects: ProjectInfo[] = [
   {
     title: "Blog Cutter",
     description:
-      "Haz clips de tus videos más largos con esta aplicación de una forma rápida y sencilla.",
+      "Haz clips de tus videos más largos con esta aplicación de una forma rápida y sencilla. Creado con React y Capacitor.",
     cover: IMAGES('blogcutter.png'),
     link: "https://github.com/Bastiasa/blogcutter/",
     year: 2025,
@@ -54,7 +54,7 @@ export const projects: ProjectInfo[] = [
   {
     title: "Pressure Point",
     description:
-      "Un videojuego multijugador online en el que te enfretarás en un 1v1. Desarrollado para una Game Jam con Godot Engine.",
+      "Un videojuego multijugador online en el que te enfretarás en un 1v1. Desarrollado para una Game Jam. Creado con Godot Engine y Node.js.",
     cover: IMAGES('pressure_point.png'),
     link: "https://bastiasa.itch.io/pressure-point",
     pixelatedCover: true,
@@ -65,7 +65,7 @@ export const projects: ProjectInfo[] = [
   {
     title: "First Person Showcase",
     description:
-      "Un pequeño test para mostrar mis habilidades como programador de videojuegos en el ámbito 3D.",
+      "Un pequeño test para mostrar mis habilidades como programador de videojuegos en el ámbito 3D. Creado con Godot Engine.",
     cover: IMAGES('first_person_showcase.png'),
     link: "https://bastiasa.itch.io/fptest",
     year: 2024,
@@ -73,7 +73,7 @@ export const projects: ProjectInfo[] = [
 
   {
     title: "ArkaNet",
-    description: "Videojuego shoot'em up desarrollado para un curso de Platzi.",
+    description: "Videojuego shoot'em up desarrollado para un curso de Platzi. Creado con Godot Engine.",
     link: "https://bastiasa.itch.io/arkanet",
     cover: IMAGES('arkanet.png'),
     blank: true,
@@ -82,7 +82,7 @@ export const projects: ProjectInfo[] = [
 
   {
     title: "Dark People",
-    description: "Un videojuego basado en Five Night's at Freddy's, desarrollado en Godot Engine 3.",
+    description: "Un videojuego basado en Five Night's at Freddy's. Creado con Godot Engine.",
     cover: IMAGES('dark_people.png'),
     link: "https://bastiasa.itch.io/dark-people-beta",
     blank: true,
