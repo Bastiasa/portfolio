@@ -57,7 +57,7 @@ export function Hero({
           </dl>
 
           <a className="hero-scroll" href="#proyectos">
-            Ver proyectos <Icon name="south" />
+            See projects <Icon name="south" />
           </a>
         </div>
       </div>
