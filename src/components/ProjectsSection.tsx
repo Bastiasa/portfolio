@@ -11,12 +11,12 @@ type ProjectsSectionProps = {
 
 export function ProjectsSection({
   projects,
-  title = "Proyectos",
+  title = "Projects",
 }: ProjectsSectionProps) {
   const [query, setQuery] = useState("");
 
-  // El número de catálogo se calcula sobre la lista completa (no la filtrada)
-  // para que cada proyecto conserve siempre el mismo número.
+  // Catalog numbers are calculated from the full list (not the filtered one)
+  // so each project always keeps the same number.
   const numbered = useMemo(
     () => projects.map((project, index) => ({ project, number: index + 1 })),
     [projects]
@@ -25,6 +25,7 @@ export function ProjectsSection({
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
     if (!q) return numbered;
+
     return numbered.filter(({ project }) =>
       [project.title, project.description, project.year ? String(project.year) : ""]
         .join(" ")
@@ -34,15 +35,15 @@ export function ProjectsSection({
   }, [numbered, query]);
 
   return (
-    <section id="proyectos" className="projects-section">
+    <section id="projects" className="projects-section">
       <div className="projects-section-header">
         <h2 className="section-title">{title}</h2>
 
         <TextInput
           value={query}
           onChange={(event) => setQuery(event.currentTarget.value)}
-          placeholder="Buscar por nombre, tecnología o año…"
-          aria-label="Buscar proyectos"
+          placeholder="Search by name, technology, or year..."
+          aria-label="Search projects"
           className="w-full"
           rightSection={<Icon name="search" className="text-current" />}
           classNames={{
@@ -54,7 +55,7 @@ export function ProjectsSection({
 
       {filtered.length === 0 ? (
         <p className="projects-empty">
-          No hay proyectos que coincidan con “{query}”. Prueba con otro término.
+          No projects found matching "{query}". Try a different search term.
         </p>
       ) : (
         <div className="projects-list">

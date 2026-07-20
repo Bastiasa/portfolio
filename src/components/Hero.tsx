@@ -28,11 +28,11 @@ export function Hero({
       <div className="hero-inner">
         <div className="hero-photo-frame">
           <img src={photoSrc} alt={name} className="hero-photo" />
-          <span className="hero-photo-tag">Ficha 01</span>
+          {/*<span className="hero-photo-tag">Ficha 01</span>*/}
         </div>
 
         <div className="hero-copy">
-          <p className="hero-eyebrow">Portafolio — {new Date().getFullYear()}</p>
+          <p className="hero-eyebrow">PORTFOLIO — {new Date().getFullYear()}</p>
           <h1 className="hero-name">{name}</h1>
           <p className="hero-role">{role}</p>
           <p className="hero-tagline">{tagline}</p>

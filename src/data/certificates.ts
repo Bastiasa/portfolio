@@ -53,7 +53,4 @@ export const certificates: CertificateData[] = [
     title: "INTRODUCCIÓN A GODOT",
     issuer: "Platzi"
   }
-
-
-
 ];

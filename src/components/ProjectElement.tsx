@@ -35,7 +35,7 @@ export function ProjectElement({
         <LinearLayout direction="vertical" className="p-4 pb-6 relative" spacing="6px">
           {catalogNumber !== undefined && (
             <span className="project-catalog-number">
-              No. {String(catalogNumber).padStart(3, "0")}
+              # {String(catalogNumber).padStart(3, "0")}
             </span>
           )}
 

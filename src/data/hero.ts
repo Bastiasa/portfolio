@@ -1,12 +1,13 @@
 import { type HeroProps } from "../components/Hero";
 
-import HERO_PHOTO from '../assets/hero-photo.png';
+import HERO_PHOTO from "../assets/hero-photo.png";
+import { LOCATION } from "./globals";
 
 export const HERO_DATA: HeroProps = {
     name: "Luis Bastidas",
-    role: "Desarrollador Backend",
-    tagline: "Construyo productos web sólidos, del prototipo a producción.",
+    role: "Backend Developer",
+    tagline: "I build robust web products, from prototype to production.",
     photoSrc: HERO_PHOTO.src,
-    location: "Antioquia, Colombia",
-    availability: "Disponible para nuevos proyectos"
-}
+    location: LOCATION,
+    availability: "Available for new projects"
+};

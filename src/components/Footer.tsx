@@ -20,7 +20,7 @@ export function Footer({ name, email, socials, location }: FooterProps) {
     <footer className="site-footer">
       <div className="site-footer-inner">
         <div className="footer-block">
-          <p className="footer-eyebrow">Contacto</p>
+          <p className="footer-eyebrow">Contact</p>
           <ul className="footer-socials">
             {socials.map((social) => (
               <li key={social.label}>
@@ -42,20 +42,20 @@ export function Footer({ name, email, socials, location }: FooterProps) {
         </div>
 
         <div className="footer-block footer-block-right">
-          <p className="footer-eyebrow">Ficha técnica</p>
+          <p className="footer-eyebrow">Tech Stack</p>
           <ul className="footer-facts">
-            {location && <li>Con base en {location}</li>}
-            <li>Construido con Vite, React, Mantine y Tailwind CSS</li>
-            <li>Código abierto disponible bajo solicitud</li>
+            {location && <li>Based in {location}</li>}
+            <li>Built with Astro, React, TypeScript, and Tailwind CSS</li>
+            <li>Designed and developed by {name}</li>
           </ul>
         </div>
       </div>
 
       <div className="footer-bottom">
         <span>
-          © {year} {name}. Todos los derechos reservados.
+          © {year} {name}. All rights reserved.
         </span>
-        <a href="#top">Volver arriba</a>
+        <a href="#top">Back to top</a>
       </div>
     </footer>
   );

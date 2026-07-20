@@ -44,25 +44,38 @@ export function CookieConsent({ onAccepted }: CookieConsentProps) {
 
   if (!visible) return null;
 
-  return (
-    <div className="cookie-consent" role="dialog" aria-live="polite" aria-label="Aviso de cookies">
-      <div className="cookie-consent-inner">
-        <Icon name="cookie" className="cookie-consent-icon" />
+return (
+  <div
+    className="cookie-consent"
+    role="dialog"
+    aria-live="polite"
+    aria-label="Cookie Notice"
+  >
+    <div className="cookie-consent-inner">
+      <Icon name="cookie" className="cookie-consent-icon" />
 
-        <p className="cookie-consent-text">
-          Este sitio usa cookies de <strong>Google Analytics</strong> para
-          entender cómo se navega y mejorar el contenido. No se usan con
-          fines publicitarios.
-        </p>
+      <p className="cookie-consent-text">
+        This website uses <strong>Google Analytics</strong> cookies to
+        understand how visitors navigate the site and improve its content.
+        They are not used for advertising purposes.
+      </p>
 
-        <button type="button" className="cookie-consent-button" onClick={handleDeny}>
-          Rechazar
-        </button>
+      <button
+        type="button"
+        className="cookie-consent-button"
+        onClick={handleDeny}
+      >
+        Reject
+      </button>
 
-        <button type="button" className="cookie-consent-button" onClick={handleAccept}>
-          Aceptar
-        </button>
-      </div>
+      <button
+        type="button"
+        className="cookie-consent-button"
+        onClick={handleAccept}
+      >
+        Accept
+      </button>
     </div>
-  );
+  </div>
+);
 }

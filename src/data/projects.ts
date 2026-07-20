@@ -4,28 +4,28 @@ import { transformGlobFiles } from "../utils";
 const RAW_IMAGES = import.meta.glob("../assets/projects_banners/*.{png,jpg,webp,jpeg}", {
   eager: true,
   import: "default"
-}) as Record<string, {src:string}>;
+}) as Record<string, { src: string }>;
 
 const IMAGES = transformGlobFiles(RAW_IMAGES);
 
-console.log(IMAGES('shirt_maker_3d.jpg'))
+console.log(IMAGES("shirt_maker_3d.jpg"));
 
-// Reemplaza con tus proyectos reales. El orden define el número de catálogo.
+// Replace with your real projects. The order defines the catalog number.
 export const projects: ProjectInfo[] = [
 
   {
     title: "Shirt Maker 3D",
-    description: "Puedes crear un mockup fácil y rápido, con tus imágenes favoritas. Creado con Vite.",
-    cover: IMAGES('shirt_maker_3d.jpg'),
+    description: "Create a mockup quickly and easily using your favorite images. Built with Vite.",
+    cover: IMAGES("shirt_maker_3d.jpg"),
     link: "https://bastiasa.github.io/shirt_maker",
     blank: true,
     year: 2024
   },
 
   {
-    title: "Sistema de Votación",
-    description: "Realiza votaciones en varios dispositivos. Con un gráfico de barras en tiempo real. Creado con React y Electron.",
-    cover: IMAGES('voting_system.webp'),
+    title: "Voting System",
+    description: "Run voting sessions across multiple devices, featuring a real-time bar chart. Built with React and Electron.",
+    cover: IMAGES("voting_system.webp"),
     link: "https://github.com/Bastiasa/voting-system",
     year: 2025
   },
@@ -33,29 +33,26 @@ export const projects: ProjectInfo[] = [
   {
     title: "Blog Cutter",
     description:
-      "Haz clips de tus videos más largos con esta aplicación de una forma rápida y sencilla. Creado con React y Capacitor.",
-    cover: IMAGES('blogcutter.png'),
+      "Create clips from your longer videos with this fast and easy-to-use application. Built with React and Capacitor.",
+    cover: IMAGES("blogcutter.png"),
     link: "https://github.com/Bastiasa/blogcutter/",
     year: 2025,
   },
 
-
-
   /*{
     title: "Santa Store",
     description:
-      "E-Commerce de una empresa de estampados llamada Santa Store Diseños Personalizados.",
-    cover: IMAGES('santa_store.png'),
+      "E-commerce website for a custom printing company called Santa Store Diseños Personalizados.",
+    cover: IMAGES("santa_store.png"),
     link: "https://santastore.site",
     year: 2026,
   },*/
 
-
   {
     title: "Pressure Point",
     description:
-      "Un videojuego multijugador online en el que te enfretarás en un 1v1. Desarrollado para una Game Jam. Creado con Godot Engine y Node.js.",
-    cover: IMAGES('pressure_point.png'),
+      "An online multiplayer video game where you face off in a 1v1 battle. Developed for a Game Jam. Built with Godot Engine and Node.js.",
+    cover: IMAGES("pressure_point.png"),
     link: "https://bastiasa.itch.io/pressure-point",
     pixelatedCover: true,
     blank: true,
@@ -65,106 +62,105 @@ export const projects: ProjectInfo[] = [
   {
     title: "First Person Showcase",
     description:
-      "Un pequeño test para mostrar mis habilidades como programador de videojuegos en el ámbito 3D. Creado con Godot Engine.",
-    cover: IMAGES('first_person_showcase.png'),
+      "A small demo showcasing my skills as a 3D game developer. Built with Godot Engine.",
+    cover: IMAGES("first_person_showcase.png"),
     link: "https://bastiasa.itch.io/fptest",
     year: 2024,
   },
 
   {
     title: "ArkaNet",
-    description: "Videojuego shoot'em up desarrollado para un curso de Platzi. Creado con Godot Engine.",
+    description: "A shoot'em up video game developed for a Platzi course. Built with Godot Engine.",
     link: "https://bastiasa.itch.io/arkanet",
-    cover: IMAGES('arkanet.png'),
+    cover: IMAGES("arkanet.png"),
     blank: true,
     year: 2022
   },
 
   {
     title: "Dark People",
-    description: "Un videojuego basado en Five Night's at Freddy's. Creado con Godot Engine.",
-    cover: IMAGES('dark_people.png'),
+    description: "A video game inspired by Five Nights at Freddy's. Built with Godot Engine.",
+    cover: IMAGES("dark_people.png"),
     link: "https://bastiasa.itch.io/dark-people-beta",
     blank: true,
     year: 2022
   }
 ];
 
-
 /**
- * 
+ *
  * type ProjectInfo = {
-    title: string;
-    description: string;
-    cover: string;
-    link?: string;
-    blank?: boolean;
-    pixelatedCover?: boolean,
-    year?:number
-}
-
-const PROJECTS: ProjectInfo[] = [
-    {
-        title:"Santa Store",
-        description:"E-Commerce de una empresa de estampados llamada Santa Store Diseños Personalizados",
-        cover:SANTA_STORE_LOGO,
-        link:"https://santastore.site",
-        year: 2026
-    },
-
-    {
-        title: "Blog Cutter",
-        description: "Una aplicación Android para cortar videos largos de forma eficiente.",
-        cover:BC_LOGO,
-        link: "https://github.com/Bastiasa/blogcutter/",
-        year: 2025
-    },
-    
-    {
-        title: "Pressure Point",
-        description: "Un videojuego multijugador online en el que te enfretarás en un 1v1. Desarrollado para una Game Jam.",
-        cover: PRESSURE_POINT_BANNER,
-        link: "https://bastiasa.itch.io/pressure-point",
-        blank: true,
-        pixelatedCover:true,
-        year:2024
-    },
-
-    {
-        title: "First Person Showcase",
-        description: "Un pequeño test para mostrar mis habilidades como programador de videojuegos en el ámbito 3D.",
-        cover: FPSCS_BANNER,
-        link: "https://bastiasa.itch.io/fptest",
-        blank: true,
-        pixelatedCover:false,
-        year:2024
-    },
-
-    {
-        title: "Shirt Maker 3D",
-        description: "Un sitio web para visualizar estampados de camisetas en 3D.",
-        cover: SHIRT_MAKER_3D_BANNER,
-        link: "https://bastiasa.github.io/shirt_maker",
-        blank: true,
-        year:2024
-    },
-
-    {
-        title: "ArkaNet",
-        description: "Este videojuego fue hecho para un curso de Platzi.",
-        link: "https://bastiasa.itch.io/arkanet",
-        cover: ARKANET_BANNER,
-        blank: true,
-        year: 2022
-    },
-
-    {
-        title: "Dark People",
-        description: "Un videojuego basado en Five Night's at Freddy's, desarrollado en Godot Engine 3.",
-        cover: DARK_PEOPLE_BANNER,
-        link: "https://bastiasa.itch.io/dark-people-beta",
-        blank: true,
-        year:2022
-    }
-]
+ *   title: string;
+ *   description: string;
+ *   cover: string;
+ *   link?: string;
+ *   blank?: boolean;
+ *   pixelatedCover?: boolean;
+ *   year?: number;
+ * }
+ *
+ * const PROJECTS: ProjectInfo[] = [
+ *   {
+ *     title: "Santa Store",
+ *     description: "E-commerce website for a custom printing company called Santa Store Diseños Personalizados.",
+ *     cover: SANTA_STORE_LOGO,
+ *     link: "https://santastore.site",
+ *     year: 2026
+ *   },
+ *
+ *   {
+ *     title: "Blog Cutter",
+ *     description: "An Android application for efficiently trimming long videos.",
+ *     cover: BC_LOGO,
+ *     link: "https://github.com/Bastiasa/blogcutter/",
+ *     year: 2025
+ *   },
+ *
+ *   {
+ *     title: "Pressure Point",
+ *     description: "An online multiplayer video game where you face off in a 1v1 battle. Developed for a Game Jam.",
+ *     cover: PRESSURE_POINT_BANNER,
+ *     link: "https://bastiasa.itch.io/pressure-point",
+ *     blank: true,
+ *     pixelatedCover: true,
+ *     year: 2024
+ *   },
+ *
+ *   {
+ *     title: "First Person Showcase",
+ *     description: "A small demo showcasing my skills as a 3D game developer.",
+ *     cover: FPSCS_BANNER,
+ *     link: "https://bastiasa.itch.io/fptest",
+ *     blank: true,
+ *     pixelatedCover: false,
+ *     year: 2024
+ *   },
+ *
+ *   {
+ *     title: "Shirt Maker 3D",
+ *     description: "A website for previewing t-shirt designs in 3D.",
+ *     cover: SHIRT_MAKER_3D_BANNER,
+ *     link: "https://bastiasa.github.io/shirt_maker",
+ *     blank: true,
+ *     year: 2024
+ *   },
+ *
+ *   {
+ *     title: "ArkaNet",
+ *     description: "This video game was created for a Platzi course.",
+ *     link: "https://bastiasa.itch.io/arkanet",
+ *     cover: ARKANET_BANNER,
+ *     blank: true,
+ *     year: 2022
+ *   },
+ *
+ *   {
+ *     title: "Dark People",
+ *     description: "A video game inspired by Five Nights at Freddy's, developed with Godot Engine 3.",
+ *     cover: DARK_PEOPLE_BANNER,
+ *     link: "https://bastiasa.itch.io/dark-people-beta",
+ *     blank: true,
+ *     year: 2022
+ *   }
+ * ];
  */
