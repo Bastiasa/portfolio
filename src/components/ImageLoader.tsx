@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 type ImageLoaderProps = {
   src: string;
@@ -15,10 +15,20 @@ export function ImageLoader({ src, alt, className = "" }: ImageLoaderProps) {
   const [loaded, setLoaded] = useState(false);
   const [errored, setErrored] = useState(false);
 
+  const imgRef = useRef<HTMLImageElement>(null);
+
+  useEffect(() => {
+    if (imgRef.current?.complete) {
+      setLoaded(true);
+    }
+  }, []);
+
+
   return (
     <div className={`image-loader ${className}`}>
       {!loaded && !errored && <div className="image-loader-skeleton" />}
       <img
+        ref={imgRef}
         src={errored ? "https://placehold.co/900x900?text=%20" : src}
         alt={alt}
         loading="lazy"

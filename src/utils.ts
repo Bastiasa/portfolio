@@ -1,4 +1,4 @@
-export const transformGlobFiles = (globResult: Record<string, string>) => {
+export const transformGlobFiles = (globResult: Record<string, {src:string}>) => {
     const resultMap = Object.fromEntries(
         Object.entries(globResult).map(([path, url]) => [
             path.split("/").pop(),
@@ -6,5 +6,5 @@ export const transformGlobFiles = (globResult: Record<string, string>) => {
         ])
     );
 
-    return (fileName: string) => resultMap[fileName];
+    return (fileName: string) => resultMap[fileName].src;
 }

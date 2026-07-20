@@ -4,9 +4,11 @@ import { transformGlobFiles } from "../utils";
 const RAW_IMAGES = import.meta.glob("../assets/projects_banners/*.{png,jpg,webp,jpeg}", {
   eager: true,
   import: "default"
-}) as Record<string, string>;
+}) as Record<string, {src:string}>;
 
 const IMAGES = transformGlobFiles(RAW_IMAGES);
+
+console.log(IMAGES('shirt_maker_3d.jpg'))
 
 // Reemplaza con tus proyectos reales. El orden define el número de catálogo.
 export const projects: ProjectInfo[] = [

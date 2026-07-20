@@ -4,12 +4,12 @@ import { transformGlobFiles } from "../utils";
 const LOGOS_RAW = import.meta.glob("../assets/certifications_logos/*.{png,jpg,webp,jpeg,avif}", {
   eager: true,
   import: "default"
-}) as Record<string, string>;
+}) as Record<string, {src:string}>;
 
 const LOGOS = transformGlobFiles(LOGOS_RAW);
 
 const r = function (id: string) {
-  return `${import.meta.env.BASE_URL}/c/${id}`;
+  return `c/${id}`;
 }
 
 export const certificates: CertificateData[] = [

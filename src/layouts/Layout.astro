@@ -1,6 +1,9 @@
+---
+---
+
 <!doctype html>
-<html lang="es-CO">
-  <head>
+<html lang="en">
+	<head>
 
     <meta name="google-site-verification" content="w9vSOoe0qFtiMZcLGwShpZovpKKssJqrk1dr6cbyuZM" />
 
@@ -32,9 +35,10 @@
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-JV9ML4JJME"></script>
     
     <script>
+	
       window.dataLayer = window.dataLayer || [];
       
-      function gtag(){dataLayer.push(arguments);}
+      function gtag(){window.dataLayer.push(arguments);}
 
       window.gtag('consent', 'default', {
           analytics_storage: 'denied'
@@ -43,10 +47,19 @@
       window.gtag('js', new Date());
       window.gtag('config', 'G-JV9ML4JJME');
     </script>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-
-  </body>
+		<meta name="generator" content={Astro.generator} />
+		<title>Astro Basics</title>
+	</head>
+	<body>
+		<slot />
+	</body>
 </html>
+
+<style>
+	html,
+	body {
+		margin: 0;
+		width: 100%;
+		height: 100%;
+	}
+</style>

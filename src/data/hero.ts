@@ -6,7 +6,7 @@ export const HERO_DATA: HeroProps = {
     name: "Luis Bastidas",
     role: "Desarrollador Backend",
     tagline: "Construyo productos web sólidos, del prototipo a producción.",
-    photoSrc: HERO_PHOTO,
+    photoSrc: HERO_PHOTO.src,
     location: "Antioquia, Colombia",
     availability: "Disponible para nuevos proyectos"
 }
